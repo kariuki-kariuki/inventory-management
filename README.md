@@ -1,24 +1,19 @@
-# README
+## Asset Inventory Management sytem
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Inventory routes
 
-Things you may want to cover:
+### Login
+<hr/>
+<p><em style = "color: blue">POST</em> = http://localhost:3000/signup </p>
 
-* Ruby version
+### Signin
+<hr/>
+<p><em style = "color: blue">POST</em> = http://localhost:3000/signin </p>
 
-* System dependencies
+### Autologin
+<hr/>
+<p><em style = "color: blue">GET</em> = http://localhost:3000/me </p>
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Logout
+<hr/>
+<p><em style = "color: blue">POST</em> = http://localhost:3000/logout </p>
