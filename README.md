@@ -20,6 +20,7 @@
 
 
 ## Error on migration do
+<hr/>
 ``` 
 rails db:drop 
 rails db:create 
