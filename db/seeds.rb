@@ -16,151 +16,209 @@ asset1 = Asset.create(
    name: "HP Envy 15" ,
    category: "Laptop",
    description: "Intel core i7, 16GB RAM, 512GB SSD",
-   quantity: "5"
+   status: true
 )
 asset2 = Asset.create(
-   user_id:2 ,
-   name: "DELL inspiron 15-3000"
+   name: "DELL inspiron 15-3000",
    category: "Laptop",
    description: "core i5, 8GB RAM, 512GB SSD" ,
-   quantity: "9"
-)
+   status: false
+   )
 asset3 = Asset.create(
-   user_id: 2,
-   name: "ASUS Vivo-Book 14" ,
+   name: "ASUS Vivo-Book 14",
    category: "Laptop",
    description: "core i5, 8GB RAM, 256GB SSD",
-   quantity: "7"
+   status: false
 )
 asset4 = Asset.create(
    user_id:1 ,
-   name: "MacBook Pro 14" ,
+   name: "MacBook Pro 14",
    category: "Laptop",
    description: "Apple M1-PRO, 64GB RAM, 1TB SSD",
-   quantity: "2"
+   status: true
 )
 asset5 = Asset.create(
-   user_id: 1,
-   name: "Lenovo Yoga 720" ,
+   name: "Lenovo Yoga 720",
    category: "Laptop",
    description: "core i5, 16GB RAM, 512GB SSD",
-   quantity: "8"
+   status: false
 )
 asset6 = Asset.create(
    user_id: 1,
-   name: "HP Elite-Book 1030" ,
+   name: "HP Elite-Book 1030",
    category: "Laptop",
    description: "core i7, 8GB RAM, 512GB SSD",
-   quantity: "9"
+   status: true
 )
 asset7 = Asset.create(
    user_id:2 ,
-   name: "DELL Latitude 5400" ,
+   name: "DELL Latitude 5400",
    category: "Laptop",
    description: "core i5, 8GB RAM, 256GB SSD",
-   quantity: "10"
+   status: true
 )
 asset8 = Asset.create(
    user_id: 1,
    name: "ASUS X409" ,
    category: "Laptop",
    description: "core i7, 8GB RAM, 256GB SSD",
-   quantity: "6"
+   status: true
 )
 asset9 = Asset.create(
-   user_id: 1,
    name: "Macbook Pro A1708" ,
-   category: "laptop",
+   category: "Laptop",
    description: "core i5, 8GB RAM, 256GB SSD",
-   quantity: "3"
+   status: false
 )
 asset10 = Asset.create(
-   user_id: ,
-   name: "Lenovo IdeaPad 3" ,
+   user_id: 2,
+   name: "Lenovo IdeaPad 3",
    category: "Laptop",
    description: "core i5, 8GB RAM, 512GB SSD",
-   quantity: "4"
+   status: true
 )
 asset11 = Asset.create(
-   user_id: ,
+   user_id: 1,
    name: "HP ProBook X360" ,
    category: "Laptop",
    description: "core i5, 16GB RAM, 512GB SSD",
-   quantity: "12"
+   status: true
 )
 asset12 = Asset.create(
-   user_id: ,
+   user_id: 2,
    name: "HP Lolio 1040" ,
    category: "Laptop",
    description: "core i7, 8GB RAM, 256GB SSD ",
-   quantity: "9"
+   status: true
 )
 asset13 = Asset.create(
-   user_id: ,
    name: "Lenovo X1 Carbon" ,
    category: "Laptop",
    description: "core i7, 8GB RAM, 256GB SSD",
-   quantity: "16"
+   status: false
 )
 asset14 = Asset.create(
-   user_id: ,
    name: "ASUS ZenBook UX481F" ,
    category: "Laptop",
    description: "Intel core i7, 16GB RAM, 1TB SSD",
-   quantity: "12"
+   status: false
 )
 asset15 = Asset.create(
-   user_id: ,
-   name: "DELL XPS13" ,
+   user_id: 2,
+   name: "DELL XPS13",
    category: "",
    description: "Intel core i7, 16GB RAM, 256GB SSD",
-   quantity: "13"
+   status: true
 )
 asset16 = Asset.create(
-   user_id: ,
-   name: "HP Spectre x360" ,
+   user_id: 1,
+   name: "HP Spectre x360",
    category: "Laptop",
    description: "Intel core i7, 16GB RAM, 1TB SSD",
-   quantity: ""
+   status: true
 )
 asset17 = Asset.create(
    
-   user_id: ,
-   name: "Lenovo Legion 7" ,
+   name: "Lenovo Legion 7",
    category: "Laptop",
    description: "Intel core i7, 26GB, 1TB SSD ",
-   quantity: "8"
+   status: false
 )
 asset18 = Asset.create(
   
-   user_id: ,
-   name: "HP Victus 16" ,
+   name: "HP Victus 16",
    category: "Laptop",
    description: "Intel core i5, 16GB RAM, 512GB SSD",
-   quantity: "6"
+   status: false
 )
 asset19 = Asset.create(
    
-   user_id: ,
-   name: "ASUS X543U" ,
+   user_id:1 ,
+   name: "ASUS X543U",
    category: "Laptop",
    description: "Intel core i3, 4GB RAM, 1TB SSD",
-   quantity: "22"
+   status: true
 )
 asset20 = Asset.create(
-   user_id: ,
-   name: "ASUS 409F" ,
+   user_id: 2,
+   name: "ASUS 409F",
    category: "Laptop",
    description: "Intel core i7, 8GB RAM, 1TB SSD",
-   quantity: "11"
+   status: true
 )
 request1 = Request.create(
-   id: 1,
-   user_id: ,
-   asset_id: ,
-   name: ,
-   category ,
-   quantity ,
-   status ,
-   urgency ,
+   user_id: 3,
+   asset_id: asset18.id,
+   name: "HP Victus 16",
+   category: "Laptop",
+   quantity: 2,
+   status: "Approved",
+   urgency: "Urgent"
 )
+request2 = Request.create(
+   user_id: 4,
+   asset_id: asset11.id ,
+   name: "HP ProBook X360",
+   category: "Laptop",
+   quantity: 5,
+   status: "Rejected",
+   urgency: "Not Urgent"
+)
+request3 = Request.create(
+   user_id: 5,
+   asset_id: asset5.id ,
+   name: "Lenovo Yoga 720",
+   category: "Laptop",
+   quantity: 4,
+   status: "Pending",
+   urgency: "Urgent"
+)
+request4 = Request.create(
+   user_id: 3,
+   asset_id: asset9.id ,
+   name: "Macbook Pro A1708",
+   category: "Laptop",
+   quantity: 2,
+   status: "Approved",
+   urgency: "Not Urgent"
+)
+request5 = Request.create(
+   user_id: 4,
+   asset_id: asset13.id ,
+   name: "Lenovo X1 Carbon",
+   category: "Laptop",
+   quantity: 7,
+   status: "Rejected",
+   urgency: "Urgent"
+)
+user1 = User.create(
+   name: "John",
+   email: "johnbing@gmail.com",
+   role: "Admin",
+   password: "Apple"
+)
+user2 = User.create(
+   name: "Jane",
+   email: "janebuffay@gmail.com",
+   role: "Manager",
+   password: "Pear"
+)
+user3 = User.create(
+   name: "Ross",
+   email: "rossgeller@gmail.com",
+   role: "Employee",
+   password: "Pineapple"
+)
+user4 = User.create(
+   name: "Monica",
+   email: "monicag12@gmail.com",
+   role: "Employee",
+   password: "Banana"
+)
+user5 = User.create(
+   name: "Phoebe",
+   email: "phoebe123@gmail.com",
+   role: "Employee",
+   password: "Lemon"
+)
+puts "Done Seeding..."
