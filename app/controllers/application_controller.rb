@@ -12,13 +12,13 @@ class ApplicationController < ActionController::API
   # Authorize admin
   def authorize_admin
     admin = User.find_by(id: session[:user_id])
-    render json: { errors: ["Not authorized"] }, status: :unauthorized unless admin[:role] == 'admin'
+    render json: { errors: ["Not authorized"] }, status: :unauthorized unless admin[:role] == 'Admin'
   end
 
   # authorize manager
   def authorize_manager
     manager = User.find_by(id: session[:user_id])
-    render json: { errors: ["Not authorized"] }, status: :unauthorized unless manager[:role] == 'manager'
+    render json: { errors: ["Not authorized"] }, status: :unauthorized unless manager[:role] == 'Manager'
   end
 
   # authorize employee

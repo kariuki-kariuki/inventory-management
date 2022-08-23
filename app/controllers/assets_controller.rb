@@ -1,7 +1,6 @@
 class AssetsController < ApplicationController
-
-  skip_before_action: authorize_admin
-  skip_before_action: authorize_manager, only: [:show, :index]
+  # skip_before_action: authorize_admin
+  # skip_before_action: authorize_manager, only: [:show, :index]
 
   def create
     new_asset = Asset.create!(asset_params)
@@ -10,11 +9,17 @@ class AssetsController < ApplicationController
 
   def show
     asset = find_asset(params[:id])
-    render json: asset, iclude: [:user]
+    render json: asset
   end
 
   def index
-   render json: Asset.all, status: :ok
+    user = @current_user
+    if(user[:role] == "Manager")
+      render json: Asset.all, status: :ok
+    else
+      asset = Asset.where(user_id: session[:id])
+      render json: asset, status: :ok
+    end
   end
 
 
