@@ -6,13 +6,9 @@ class UsersController < ApplicationController
 
   # create 
   def create
-    user = User.create(user_params)
-    if user.valid?
+    user = User.create!(user_params)
       session[:user_id] = user.id
       render json: user, status: :created
-    else 
-      render json: { errors: user.errors.full_message }
-    end
   end
 
   # show route
@@ -42,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:username, :password, :email, :password_confirmation)
+    params.permit(:name,:email,:password,:role)
   end
 
   def render_not_found
@@ -50,6 +46,6 @@ class UsersController < ApplicationController
   end
 
   def render_unprocessed_entity(invalid)
-    render json: { errors: invalid.record.errors}, status: :unprocessable_entity
+    render json: { message: invalid.record.errors}, status: :unprocessable_entity
   end
 end
