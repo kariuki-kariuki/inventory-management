@@ -1,6 +1,6 @@
 class AssetsController < ApplicationController
-  # skip_before_action: authorize_admin
-  # skip_before_action: authorize_manager, only: [:show, :index]
+  skip_before_action: authorize_admin
+  skip_before_action: authorize_manager, only: [:show, :index]
 
   def create
     new_asset = Asset.create!(asset_params)
