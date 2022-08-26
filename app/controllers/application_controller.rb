@@ -3,9 +3,9 @@ class ApplicationController < ActionController::API
 
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-  # before_action :authorize
-  # before_action :authorize_admin
-  # before_action :authorize_manager
+  before_action :authorize
+  before_action :authorize_admin
+  before_action :authorize_manager
 
   private
 
