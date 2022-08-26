@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
   skip_before_action :authorize, only: :create
+  skip_before_action :authorize_admin, only: :create
+  skip_before_action :authorize_manager, only: :create
 
   def create
-    user = User.find_by(username: params[:username])
+    user = User.find_by(email: params[:email])
     # byebug
-    if user&.authenticate(params[:password])
+    if user && user[:password] == params[:password]
       session[:user_id] = user.id
       render json: user, status: :created
     else
