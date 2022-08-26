@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessed_entity
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  # skip_before_action :authorize_admin, only: :show
+  skip_before_action :authorize_admin, only: :show
+  # skip_before_action :authorize, only: :show
+  skip_before_action :authorize_manager, only: [:show, :create, :destroy]
 
   # create 
   def create
@@ -13,8 +15,7 @@ class UsersController < ApplicationController
 
   # show route
   def show
-    current_user = @current_user
-    render json: current_user, status: :ok
+    render json: @current_user, status: :ok
   end
 
   # Update route
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    User.find_by(id: params[:id])
+    User.find_by(id: session[:id])
   end
 
   def user_params

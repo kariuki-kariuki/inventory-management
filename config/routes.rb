@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # match '*all' => 'application#cors_preflight_check', :constraints => { method: 'OPTIONS' }
+
   resources :requests
   resources :assets
   resources :users
@@ -6,8 +8,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  post "/login", to: "session#create"
-  get "/logout", to: "session#destroy"
+  post "/login", to: "sessions#create"
+  get "/logout", to: "sessions#destroy"
   # post "/signup", to: "user#create"
-  get "/me", to: "user#show"
+  get "/me", to: "users#show"
 end
