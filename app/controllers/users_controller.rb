@@ -2,11 +2,8 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessed_entity
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  skip_before_action :authorize_admin, only: :show
-  # skip_before_action :authorize, only: :show
-  skip_before_action :authorize_manager, only: [:show, :create, :destroy]
 
-  # create 
+  # skip_before_action :authorize, only[:]
   def create
     user = User.create!(user_params)
       session[:user_id] = user.id
