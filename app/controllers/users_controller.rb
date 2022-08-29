@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
 
-  # create 
+  # skip_before_action :authorize, only[:]
   def create
     user = User.create!(user_params)
       session[:user_id] = user.id

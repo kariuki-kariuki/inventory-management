@@ -12,7 +12,7 @@
 
 ### Autologin
 <hr/>
-<p><em style = "color: blue">GET</em> = http://localhost:3000/me </p>
+<p><em style = "color: blue; font-size: 20px">GET</em> = http://localhost:3000/me </p>
 
 ### Logout
 <hr/>

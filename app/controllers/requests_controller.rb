@@ -33,6 +33,6 @@ class RequestsController < ApplicationController
     Request.find_by(id: params[:id])
   end
   def requets_params
-    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id, :quantity,)
+    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id)
   end
 end
