@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  before_action :authorize
+  
   def not_found
     render json: { error: 'not_found' }
   end
@@ -16,7 +18,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def authorize_admin
+  # def authorize_admin
     
-  end
+  # end
 end
