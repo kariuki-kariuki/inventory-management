@@ -1,13 +1,13 @@
 class AssetsController < ApplicationController
-
+  skip_before_action :authorize
   def create
     new_asset = Asset.create!(asset_params)
     render json: new_asset, status: :created
   end
 
   def show
-    asset = find_asset(params[:id])
-    render json: asset
+    asset = Asset.find_by(id: params[:id])
+    render json: asset, status: :ok
   end
 
   def index
@@ -24,7 +24,7 @@ class AssetsController < ApplicationController
   def destroy 
     asset = find_asset(params[:id])
     asset.destroy
-    head: no_content
+    head :no_content
   end
   private
 
