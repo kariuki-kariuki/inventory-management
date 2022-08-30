@@ -1,4 +1,4 @@
 class Asset < ApplicationRecord
   has_many :requests
-  has_one :user
+  belongs_to :user
 end

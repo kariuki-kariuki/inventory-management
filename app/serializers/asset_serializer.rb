@@ -1,5 +1,5 @@
 class AssetSerializer < ActiveModel::Serializer
-  attributes :id, :name, :user_id, :category, :description, :quantity
+  attributes :id, :name, :user_id, :category, :description
   has_many :requests
-  has_many :users, through: :requests
+  belongs_to :user
 end
