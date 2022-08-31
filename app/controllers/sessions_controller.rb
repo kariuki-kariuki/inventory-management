@@ -1,8 +1,13 @@
 class SessionsController < ApplicationController
+<<<<<<< HEAD
+=======
+  skip_before_action :authorized, only: [:create]
+>>>>>>> 6e5143e (actin cable setup)
 
   # def create
   #   user = User.find_by(email: params[:email])
   #   # byebug
+<<<<<<< HEAD
   #   if user && user[:password] == params[:password]
   #     session[:user_id] = user.id
   #     byebug
@@ -34,6 +39,28 @@ class SessionsController < ApplicationController
       render json: { error: 'unauthorized' }, status: :unauthorized
     end
   end
+=======
+  #   if user&.authenticate(params[:password])
+  #     session[:user_id] = user.id
+  #     render json: user, status: :created
+  #   else
+  #     render json: { error: { login: 'Invalid Email or password' } }, status: :unauthorized
+  #   end
+  # end
+
+
+
+  def create
+    @user = User.find_by(email: params[:email])
+    if @user&.authenticate(params[:password])
+      token = encode_token({user_id: @user.id})
+      render json: { user: @user, jwt: token}, status: :accepted
+    else
+      invalid_record
+    end 
+
+  end 
+>>>>>>> 6e5143e (actin cable setup)
 
 
 
@@ -42,4 +69,9 @@ class SessionsController < ApplicationController
   def user_params
     params.permit(:email,:password)
   end
+
+
+  def invalid_record
+    render json: {message: "Invalid username or Password"}, status: :unauthorized
+  end 
 end

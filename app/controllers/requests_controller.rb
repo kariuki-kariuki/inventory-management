@@ -12,6 +12,7 @@ class RequestsController < ApplicationController
     render json: req, status: :created
   end
 
+ 
   def show
     req = find_req
     render json: req, status: :ok
@@ -33,6 +34,13 @@ class RequestsController < ApplicationController
     Request.find_by(id: params[:id])
   end
   def requets_params
+<<<<<<< HEAD
     params.permit(:name, :category, :status, :urgency, :asset_id, :user_id)
+=======
+    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id, :quantity)
+>>>>>>> 6e5143e (actin cable setup)
   end
 end
+
+
+# Request params asset id & user id missing from frontend 
