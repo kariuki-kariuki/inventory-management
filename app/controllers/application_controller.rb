@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::API
-<<<<<<< HEAD
+  include ActionController::Cookies
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+
+
   before_action :authorize
   
   def not_found
@@ -18,14 +21,9 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     end
   end
-=======
-  include ActionController::Cookies
 
-  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
-  before_action :authorized
-  # before_action :authorize
-  # before_action :authorize_admin
-  # before_action :authorize_manager
+
+
 
   def encode_token(payload)
     JWT.encode(payload, 'encryption')
@@ -105,7 +103,6 @@ class ApplicationController < ActionController::API
 
   #   render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
   # end
->>>>>>> 6e5143e (actin cable setup)
 
   # def authorize_admin
     

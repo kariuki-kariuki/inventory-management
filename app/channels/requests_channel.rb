@@ -7,8 +7,8 @@ class RequestsChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def receive(data)
-    request = Request.find(data["id"])
-    ActionCable.server.broadcast("requests",data)
-  end
+  # def receive(data)
+  #   request = Request.find(data["id"])
+  #   ActionCable.server.broadcast("requests",data)
+  # end
 end

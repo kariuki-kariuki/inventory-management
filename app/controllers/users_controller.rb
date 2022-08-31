@@ -2,16 +2,13 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessed_entity
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-<<<<<<< HEAD
-=======
-  # skip_before_action :authorize_admin, only: :show
-  skip_before_action :authorized, only: [:create]
+  # # skip_before_action :authorize_admin, only: :show
+  # skip_before_action :authorized, only: [:create]
 
   def index
     users = User.all
     render json: users, each_serializer: AdminUsersViewSerializer
   end 
->>>>>>> 6e5143e (actin cable setup)
 
   # skip_before_action :authorize, only[:]
   def create

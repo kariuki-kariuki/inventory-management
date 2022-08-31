@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
-  skip_before_action: authorize_admin
-  skip_before_action: authorize_manager, except: [:update]
+  # skip_before_action: authorize_admin
+  # skip_before_action: authorize_manager, except: [:update]
 
   def index
     requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
@@ -34,11 +34,7 @@ class RequestsController < ApplicationController
     Request.find_by(id: params[:id])
   end
   def requets_params
-<<<<<<< HEAD
-    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id)
-=======
     params.permit(:name, :category, :status, :urgency, :asset_id, :user_id, :quantity)
->>>>>>> 6e5143e (actin cable setup)
   end
 end
 
