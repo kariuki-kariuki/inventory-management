@@ -94,11 +94,7 @@ GEM
     irb (1.4.1)
       reline (>= 0.3.0)
     jsonapi-renderer (0.2.2)
-<<<<<<< HEAD
     jwt (1.5.6)
-=======
-    jwt (2.5.0)
->>>>>>> 6e5143e (actin cable setup)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -108,7 +104,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
-    msgpack (1.5.4)
+    msgpack (1.5.6)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -126,10 +122,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
-      racc (~> 1.4)
     pg (1.4.3)
-    puma (5.6.4)
+    puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
@@ -195,7 +189,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
-  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.2)
@@ -203,11 +196,7 @@ DEPENDENCIES
   bootsnap
   byebug
   debug
-<<<<<<< HEAD
   jwt (~> 1.5, >= 1.5.4)
-=======
-  jwt
->>>>>>> 6e5143e (actin cable setup)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors

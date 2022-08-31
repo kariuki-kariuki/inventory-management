@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   # post "/signup", to: "user#create"
   get "/me", to: "users#show"
-<<<<<<< HEAD
-=======
 
   # Admin Users list View 
   get '/all_users', to: "users#index"
@@ -21,5 +19,4 @@ Rails.application.routes.draw do
 
 
   mount ActionCable.server => '/cable'
->>>>>>> 6e5143e (actin cable setup)
 end

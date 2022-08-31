@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessed_entity
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  # # skip_before_action :authorize_admin, only: :show
-  # skip_before_action :authorized, only: [:create]
+  
 
   def index
     users = User.all

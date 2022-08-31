@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  before_action :authorize, except: [:create]
 
   
 
