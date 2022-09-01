@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
     else
       requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
       render json: requests, status: :ok
-    wnd
+    end
   end
 
   def create
