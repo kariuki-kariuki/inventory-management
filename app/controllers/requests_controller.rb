@@ -3,8 +3,12 @@ class RequestsController < ApplicationController
   # skip_before_action :authorize, except: [:update]
 
   def index
-    requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
-    render json: product, status: :ok
+    if(@current_user.role == "Manager")
+      render json: Request.all, status: :ok
+    else
+      requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
+      render json: requests, status: :ok
+    wnd
   end
 
   def create

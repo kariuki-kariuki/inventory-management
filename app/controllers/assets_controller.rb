@@ -23,6 +23,7 @@ class AssetsController < ApplicationController
       render json: asset, status: :ok
     end
   end
+  
   def my_assets
     assets = Asset.where(user_id: @current_user.id)
     # if(assets)
