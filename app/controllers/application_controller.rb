@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
 
-  before_action :authorize
+  # before_action :authorize
   
   def not_found
     render json: { error: 'not_found' }

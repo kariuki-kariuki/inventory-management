@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :authorize, except: [:create]
+  # before_action :authorize, except: [:create]
 
   
 

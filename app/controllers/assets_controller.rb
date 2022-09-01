@@ -1,7 +1,9 @@
 class AssetsController < ApplicationController
-  skip_before_action :authorize
+  # skip_before_action :authorize
   def create
     new_asset = Asset.create!(asset_params)
+  
+    ActionCable.server.broadcast("assets", {  asset: new_asset })
     render json: new_asset, status: :created
   end
 
@@ -23,7 +25,7 @@ class AssetsController < ApplicationController
 
 
   def assets_without_users
-    assets = Asset.where(user_id: nil)
+    assets = Asset.all
     render json: assets, status: :ok
   end 
 
@@ -34,6 +36,8 @@ class AssetsController < ApplicationController
     asset.destroy
     head :no_content
   end
+
+
   private
 
   def find_asset(id)
@@ -41,6 +45,6 @@ class AssetsController < ApplicationController
   end
 
   def asset_params
-    params.permit(:name, :amount)
+    params.permit(:name, :category,:description)
   end
 end

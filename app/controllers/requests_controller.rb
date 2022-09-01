@@ -9,7 +9,8 @@ class RequestsController < ApplicationController
 
   def create
     req = Request.create!(requests_params)
-    render json: req, status: :created
+    ActionCable.server.broadcast("requests", { req })
+    # render json: req, status: :created
   end
 
  
