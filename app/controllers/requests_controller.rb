@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
-  skip_before_action: authorize_admin
-  skip_before_action: authorize_manager, except: [:update]
+  # skip_before_action: authorize_admin
+  skip_before_action :authorize, except: [:update]
 
   def index
     requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
   end
 
   def create
-    req = Request.create!(requests_params)
+    req = Request.create!(requets_params)
     render json: req, status: :created
   end
 
@@ -33,6 +33,6 @@ class RequestsController < ApplicationController
     Request.find_by(id: params[:id])
   end
   def requets_params
-    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id)
+    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id, :quantity)
   end
 end
