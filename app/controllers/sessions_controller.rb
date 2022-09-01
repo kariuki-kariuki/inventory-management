@@ -16,8 +16,7 @@ class SessionsController < ApplicationController
   #   session.delete :user_id
   #   head :no_content
   # end
-  before_action :authorize, except: [:create]
-
+  skip_before_action :authorize, only: :create
 
   def show
     render json: @current_user, status: :ok

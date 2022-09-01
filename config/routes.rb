@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   # post "/signup", to: "user#create"
   get "/me", to: "users#show"
+  
+  # get asset allocataed to logined user
+  get "/myassets", to: "assets#my_assets"
+
 end
