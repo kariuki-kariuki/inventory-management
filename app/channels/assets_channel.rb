@@ -1,6 +1,6 @@
 class AssetsChannel < ApplicationCable::Channel
   def subscribed
-    stream_for "assets"
+    stream_from "assets"
   end
 
   # def receive(data)

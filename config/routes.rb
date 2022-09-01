@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   get '/available_assets', to: "assets#assets_without_users"
 
+  get '/all_requests', to: "requests#view_all_requests"
 
+  get '/admin_assets_view', to:"assets#admin_assets_view"
 
   mount ActionCable.server => '/cable'
 end

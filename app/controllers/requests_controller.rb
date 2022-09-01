@@ -4,13 +4,18 @@ class RequestsController < ApplicationController
 
   def index
     requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
-    render json: product, status: :ok
+    render json: requests, status: :ok
   end
 
   def create
     req = Request.create!(requests_params)
-    ActionCable.server.broadcast("requests", { req })
+    ActionCable.server.broadcast("requests", req)
     # render json: req, status: :created
+  end
+
+  def view_all_requests
+    reqs = Request.all
+    render json: reqs , status: :ok
   end
 
  

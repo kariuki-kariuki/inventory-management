@@ -3,8 +3,8 @@ class AssetsController < ApplicationController
   def create
     new_asset = Asset.create!(asset_params)
   
-    ActionCable.server.broadcast("assets", {  asset: new_asset })
-    render json: new_asset, status: :created
+    ActionCable.server.broadcast("assets", new_asset )
+    # render json: new_asset, status: :created
   end
 
   def show
@@ -23,9 +23,15 @@ class AssetsController < ApplicationController
   end
 
 
+  def admin_assets_view
+    assets = Asset.all
+    render json: assets, status: :ok
+  end
+
+
 
   def assets_without_users
-    assets = Asset.all
+    assets = Asset.where(user_id: nil)
     render json: assets, status: :ok
   end 
 
@@ -45,6 +51,6 @@ class AssetsController < ApplicationController
   end
 
   def asset_params
-    params.permit(:name, :category,:description)
+    params.permit(:name, :category, :description)
   end
 end
