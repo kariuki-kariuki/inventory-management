@@ -11,13 +11,7 @@ class AssetsController < ApplicationController
   end
 
   def index
-    user = @current_user
-    if(user[:role] == "Manager")
       render json: Asset.all, status: :ok
-    else
-      asset = Asset.where(user_id: session[:id])
-      render json: asset, status: :ok
-    end
   end
 
 

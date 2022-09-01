@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   get "/available_assets", to: "assets#assets_without_users"
 
-
 end
