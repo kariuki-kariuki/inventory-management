@@ -11,6 +11,7 @@
 # category
 # description
 # quantity
+
 asset1 = Asset.create(
    user_id: 1,
    name: "HP Envy 15" ,
@@ -205,21 +206,23 @@ user0 = {
 user1 = User.create(
    name: "John",
    email: "johnbing@gmail.com",
-   role: "Admin",
-   password: "Apple"
+   password: "Apple",
+   role: "Admin"
 )
-user2 = User.create(
+user2 = User.create({
    name: "Jane",
    email: "janebuffay@gmail.com",
    role: "Manager",
    password: "Pear"
-)
+})
 user3 = User.create(
    name: "Ross",
    email: "rossgeller@gmail.com",
    role: "Employee",
    password: "Pineapple"
 )
+
+
 user4 = User.create(
    name: "Monica",
    email: "monicag12@gmail.com",
@@ -233,10 +236,57 @@ user5 = User.create(
    password: "Lemon"
 )
 
-user6 = User.create{
+user6 = User.create(
    name: "john lenno",
    email: "johnlemo@einvent.com",
    role: "Employee",
    password: "lenoo"
-}
+)
+
+
+# Login Credentials for Demo's
+
+user7 = User.create(
+   name: "Spencer Boone",
+   email: "spencer@gmail.com",
+   role: "Admin",
+   password: "spencer"
+
+)
+
+user8 = User.create(
+   name: "Vicky Mercy",
+   email: "vicky@gmail.com",
+   role: "Manager",
+   password: "vicky"
+
+)
+
+
+user9 = User.create(
+   name: "Owen Dunn",
+   email: "owen@gmail.com",
+   role: "Employee",
+   password: "owen"
+
+)
+# Login Credentials for Demo's
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 puts "Done Seeding..."

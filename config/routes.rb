@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   # get asset allocataed to logined user
   get "/myassets", to: "assets#my_assets"
 
+
+  mount ActionCable.server => '/cable'
+
 end
