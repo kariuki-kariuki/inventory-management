@@ -191,6 +191,12 @@ request5 = Request.create(
    status: "Rejected",
    urgency: "Urgent"
 )
+
+user0 = {
+   name: "Management",
+   email: "management@einventory.com",
+   password: "password"
+}
 user1 = User.create(
    name: "John",
    email: "johnbing@gmail.com",

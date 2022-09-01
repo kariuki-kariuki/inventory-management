@@ -1,7 +1,7 @@
 class AssetsController < ApplicationController
   # skip_before_action :authorize
   def create
-
+    # byebug
     if @current_user.role == "Manager"
       new_asset = Asset.create(asset_params)
       render json: new_asset, status: :created
