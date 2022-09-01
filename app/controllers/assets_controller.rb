@@ -20,11 +20,14 @@ class AssetsController < ApplicationController
     end
   end
 
-  # def index
-  #   assets = Asset.all
-  #   render json: assets, status: :ok
-  # end 
 
+
+  def assets_without_users
+    assets = Asset.where(user_id: nil)
+    render json: assets, status: :ok
+  end 
+
+ 
 
   def destroy 
     asset = find_asset(params[:id])

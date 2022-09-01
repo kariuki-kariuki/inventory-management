@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   # Admin Users list View 
   get '/all_users', to: "users#index"
 
+  get '/available_assets', to: "assets#assets_without_users"
+
 
 
   mount ActionCable.server => '/cable'

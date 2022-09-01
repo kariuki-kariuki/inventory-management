@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_070402) do
     t.integer "user_id"
     t.integer "asset_id"
     t.integer "quantity"
+    t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
