@@ -1,8 +1,13 @@
 class AssetsController < ApplicationController
   # skip_before_action :authorize
   def create
-    new_asset = Asset.create!(asset_params)
-    render json: new_asset, status: :created
+
+    if @current_user.role == "Manager"
+      new_asset = Asset.create(asset_params)
+      render json: new_asset, status: :created
+    else
+      render json: {error: "You are not permited"}, status: :unauthorized
+    end
   end
 
   def show
@@ -48,6 +53,6 @@ class AssetsController < ApplicationController
   end
 
   def asset_params
-    params.permit(:name, :amount, :user_id, :category, :status, :description)
+    params.permit(:name, :user_id, :category, :status, :description)
   end
 end
