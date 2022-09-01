@@ -12,12 +12,13 @@ class SessionsController < ApplicationController
   #   end
   # end
 
-  # def destroy
-  #   session.delete :user_id
-  #   head :no_content
-  # end
+
   before_action :authorize, except: [:create]
 
+  def destroy
+    session.delete :user_id
+    head :no_content
+  end
 
   def show
     render json: @current_user, status: :ok

@@ -1,11 +1,13 @@
 class RequestsController < ApplicationController
-  skip_before_action: authorize_admin
-  skip_before_action: authorize_manager, except: [:update]
+  # skip_before_action: authorize_admin
+  # skip_before_action: authorize_manager, except: [:update]
 
   def index
-    requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
-    render json: product, status: :ok
+    requests = Request.all.order("created_at DESC")
+    # change from products to requests
+    render json: requests, status: :ok
   end
+
 
   def create
     req = Request.create!(requests_params)

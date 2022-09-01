@@ -127,6 +127,8 @@ asset17 = Asset.create(
 asset18 = Asset.create(
   
    name: "HP Victus 16",
+   user_id:nil ,
+
    category: "Laptop",
    description: "Intel core i5, 16GB RAM, 512GB SSD",
    status: false
@@ -221,4 +223,15 @@ user5 = User.create(
    role: "Employee",
    password: "Lemon"
 )
+
+asset18 = Asset.create(
+  
+   user_id: nil ,
+   name: "ASUS X543U",
+   category: "Laptop",
+   description: "Intel core i3, 4GB RAM, 1TB SSD",
+   status: true
+)
+
+
 puts "Done Seeding..."
