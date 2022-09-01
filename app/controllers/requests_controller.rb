@@ -1,18 +1,28 @@
 class RequestsController < ApplicationController
   # skip_before_action: authorize_admin
-  # skip_before_action :authorize, except: [:update]
+  skip_before_action :authorize, only: [:create]
 
   def index
+    # byebug
     if(@current_user.role == "Manager")
       render json: Request.all, status: :ok
     else
-      requests = Request.where(user_id: session[:user_id]).order("created_at DESC")
+      requests = Request.where(user_id: @current_user.id).order("created_at DESC")
       render json: requests, status: :ok
     end
   end
 
   def create
-    req = Request.create!(requets_params)
+    # byebugc
+    req = Request.create({
+      name: params[:name],
+      category: params[:category],
+      urgency: params[:urgency],
+      asset_id: params[:asset_id],
+      user_id: params[:user_id],
+      quantity: params[:quantity],
+      status: params[:status]
+    })
     render json: req, status: :created
   end
 
@@ -51,7 +61,7 @@ class RequestsController < ApplicationController
   end
 
   def requets_params
-    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id, :quantity)
+    params.permit(:name, :category, :status, :urgency, :asset_id, :user_id, :quantity, :id)
   end
 
   # def update_asset(user_id)

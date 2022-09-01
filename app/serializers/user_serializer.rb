@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :message, :name, :role, :email
+  attributes :id, :message, :name, :role, :email
   has_many :requests
   has_many :assets, through: :requests
 

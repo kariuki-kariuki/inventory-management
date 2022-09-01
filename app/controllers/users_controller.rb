@@ -3,10 +3,14 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
 
-  # skip_before_action :authorize, only[:]
+  # skip_before_action :authorize, only[:show]
+  def index
+    if(@current_user.role == "Admin")
+      render json: User.all, status: :ok
+    end
+  end
   def create
-    user = User.create!(user_params)
-      session[:user_id] = user.id
+    user = User.create(user_params)
       render json: user, status: :created
   end
 
