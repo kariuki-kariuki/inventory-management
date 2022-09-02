@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   # match '*all' => 'application#cors_preflight_check', :constraints => { method: 'OPTIONS' }
 
   resources :requests
