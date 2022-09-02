@@ -1,0 +1,545 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/assets":
+    get:
+      summary: list assets
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create asset
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                user_id:
+                  type: integer
+                category:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: boolean
+              required:
+              - name
+              - user_id
+              - category
+              - description
+              - status
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                user_id:
+                  type: integer
+                category:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: boolean
+              required:
+              - name
+              - user_id
+              - category
+              - description
+              - status
+  "/assets/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show asset
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update asset
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                user_id:
+                  type: integer
+                category:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: boolean
+              required:
+              - name
+              - user_id
+              - category
+              - description
+              - status
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                user_id:
+                  type: integer
+                category:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: boolean
+              required:
+              - name
+              - user_id
+              - category
+              - description
+              - status
+    put:
+      summary: update asset
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                user_id:
+                  type: integer
+                category:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: boolean
+              required:
+              - name
+              - user_id
+              - category
+              - description
+              - status
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                user_id:
+                  type: integer
+                category:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: boolean
+              required:
+              - name
+              - user_id
+              - category
+              - description
+              - status
+    delete:
+      summary: delete asset
+      responses:
+        '200':
+          description: successful
+  "/myassets":
+    get:
+      summary: my_assets asset
+      responses:
+        '200':
+          description: successful
+  "/requests":
+    get:
+      summary: list requests
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create request
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                category:
+                  type: string
+                status:
+                  type: string
+                urgency:
+                  type: string
+                user_id:
+                  type: integer
+                asset_id:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - name
+              - category
+              - status
+              - urgency
+              - user_id
+              - asset_id
+              - quantity
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                category:
+                  type: string
+                status:
+                  type: string
+                urgency:
+                  type: string
+                user_id:
+                  type: integer
+                asset_id:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - name
+              - category
+              - status
+              - urgency
+              - user_id
+              - asset_id
+              - quantity
+  "/requests/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show request
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update request
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                category:
+                  type: string
+                status:
+                  type: string
+                urgency:
+                  type: string
+                user_id:
+                  type: integer
+                asset_id:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - name
+              - category
+              - status
+              - urgency
+              - user_id
+              - asset_id
+              - quantity
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                category:
+                  type: string
+                status:
+                  type: string
+                urgency:
+                  type: string
+                user_id:
+                  type: integer
+                asset_id:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - name
+              - category
+              - status
+              - urgency
+              - user_id
+              - asset_id
+              - quantity
+    put:
+      summary: update request
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                category:
+                  type: string
+                status:
+                  type: string
+                urgency:
+                  type: string
+                user_id:
+                  type: integer
+                asset_id:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - name
+              - category
+              - status
+              - urgency
+              - user_id
+              - asset_id
+              - quantity
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                category:
+                  type: string
+                status:
+                  type: string
+                urgency:
+                  type: string
+                user_id:
+                  type: integer
+                asset_id:
+                  type: integer
+                quantity:
+                  type: integer
+              required:
+              - name
+              - category
+              - status
+              - urgency
+              - user_id
+              - asset_id
+              - quantity
+    delete:
+      summary: delete request
+      responses:
+        '200':
+          description: successful
+  "/users":
+    get:
+      summary: list users
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create user
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - role
+              - password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - role
+              - password
+  "/users/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show user
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update user
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - role
+              - password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - role
+              - password
+    put:
+      summary: update user
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - role
+              - password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                role:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - role
+              - password
+    delete:
+      summary: delete user
+      responses:
+        '200':
+          description: successful
+  "/me":
+    get:
+      summary: show user
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://127.0.0.1:3000/
+  variables:
+    defaultHost:
+      default: http://127.0.0.1:3000/
