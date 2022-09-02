@@ -152,6 +152,17 @@ asset20 = Asset.create(
    description: "Intel core i7, 8GB RAM, 1TB SSD",
    status: true
 )
+
+
+
+
+
+
+
+
+
+
+
 request1 = Request.create(
    user_id: 3,
    asset_id: asset18.id,
