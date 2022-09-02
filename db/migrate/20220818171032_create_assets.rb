@@ -5,8 +5,6 @@ class CreateAssets < ActiveRecord::Migration[7.0]
       t.integer :user_id
       t.string :category
       t.string :description
-      t.integer :quantity
-
       t.timestamps
     end
   end
