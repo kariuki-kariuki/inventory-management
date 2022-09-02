@@ -4,6 +4,8 @@ class AssetsController < ApplicationController
     # byebug
     if @current_user.role == "Manager"
       new_asset = Asset.create(asset_params)
+
+      ActionCable.server.broadcast("assets", new_asset )
       render json: new_asset, status: :created
     else
       render json: {error: "You are not permited"}, status: :unauthorized

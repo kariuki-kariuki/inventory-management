@@ -23,6 +23,8 @@ class RequestsController < ApplicationController
       quantity: params[:quantity],
       status: params[:status]
     })
+    ActionCable.server.broadcast("requests", req )
+
     render json: req, status: :created
   end
 

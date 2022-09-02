@@ -9,9 +9,13 @@ class UsersController < ApplicationController
       render json: User.all, status: :ok
     end
   end
+  
   def create
     user = User.create(user_params)
-      render json: user, status: :created
+
+    ActionCable.server.broadcast("users", user )
+
+    render json: user, status: :created
   end
 
   # show route
